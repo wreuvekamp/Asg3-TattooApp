@@ -14,14 +14,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.black, // Set primary color to black
         appBarTheme: AppBarTheme(
-          color: Colors.purple
-              .shade300, // app bar color a slightly darker shade of purple
+          color: Colors.purple.shade300,
         ),
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.purple, // Set primary swatch to purple
+          primarySwatch: Colors.purple,
         ).copyWith(
-          background:
-              Colors.purple.shade100, // lighter shade of purple for background
+          background: Colors.purple.shade100,
         ),
       ),
       home: HomePage(),
@@ -112,7 +110,7 @@ class ProductItem {
 class Product {
   final String name;
   final double price;
-  final String imageUrl; // Could be a local file path or a URL
+  final String imageUrl;
   final String? description;
 
   Product({
@@ -127,9 +125,7 @@ class Product {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Get the screen width
     double screenWidth = MediaQuery.of(context).size.width;
-    // Calculate the button width (90% of the screen width)
     double buttonWidth = screenWidth * 0.9;
 
     return Scaffold(
@@ -495,7 +491,7 @@ class TattooDetailsPage extends StatelessWidget {
 class BrowseProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var container = MyAppState.of(context); // Obtain the state container
+    var container = MyAppState.of(context);
     var products = [
       Product(
         name: 'Tattoo Ink Bundle',
@@ -529,7 +525,7 @@ class BrowseProductsPage extends StatelessWidget {
         children: [
           Container(
             padding: EdgeInsets.all(16.0),
-            color: Colors.yellowAccent, // Choose a color for the background
+            color: Colors.yellowAccent,
             child: Text(
               'Special Offer: Get 10% off per unit when you purchase 5 or more of the same item!',
               style: TextStyle(
@@ -812,16 +808,16 @@ class CartPage extends StatelessWidget {
                   'Tax (6.4%): \$${tax.toStringAsFixed(2)}',
                   style: TextStyle(fontSize: 16),
                 ),
-                trailing: Text(''), // To align the numbers
+                trailing: Text(''),
               ),
               ListTile(
                 title: Text(
                   'Total: \$${total.toStringAsFixed(2)}',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                trailing: Text(''), // To align the numbers
+                trailing: Text(''),
               ),
-              SizedBox(height: 16), // Add some space
+              SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -1032,6 +1028,7 @@ class _CardDetailsPageState extends State<CardDetailsPage> {
                   if (value == null || value.isEmpty) {
                     return 'Please enter expiration date';
                   }
+                  // Add your validation logic for expiration date
                   return null;
                 },
                 onSaved: (value) => _expirationDate = value,
@@ -1056,8 +1053,6 @@ class _CardDetailsPageState extends State<CardDetailsPage> {
                   if (_formKey.currentState!.validate()) {
                     String confirmationCode = generateConfirmationCode();
                     _formKey.currentState!.save();
-                    // Add payment logic here
-                    // For now, just navigate back to the cart page
                     Navigator.popUntil(context, ModalRoute.withName('/'));
                     showDialog(
                       context: context,
