@@ -1,3 +1,8 @@
+// Tattoo App dart program
+// Asg 3 - SE330
+// Wim Reuvekamp, Arun Pendyala
+// Last editted 3/6/2024
+
 import 'package:flutter/material.dart';
 import 'dart:math';
 
