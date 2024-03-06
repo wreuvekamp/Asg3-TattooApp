@@ -15,13 +15,13 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.black, // Set primary color to black
         appBarTheme: AppBarTheme(
           color: Colors.purple
-              .shade300, // Set app bar color to a slightly darker shade of purple
+              .shade300, // app bar color a slightly darker shade of purple
         ),
         colorScheme: ColorScheme.fromSwatch(
           primarySwatch: Colors.purple, // Set primary swatch to purple
         ).copyWith(
-          background: Colors.purple
-              .shade100, // Set lighter shade of purple for background color
+          background:
+              Colors.purple.shade100, // lighter shade of purple for background
         ),
       ),
       home: HomePage(),
@@ -101,6 +101,7 @@ class MyStateContainerState extends State<MyStateContainer> {
   }
 }
 
+// Product item stores the quantity along with the product. primarily for cart/purchasing.
 class ProductItem {
   final Product product;
   int quantity;
@@ -122,6 +123,7 @@ class Product {
   });
 }
 
+// Homepage
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -254,6 +256,7 @@ class Tattoo {
   });
 }
 
+// Browse Tattoos
 class BrowseTattoosPage extends StatefulWidget {
   @override
   _BrowseTattoosPageState createState() => _BrowseTattoosPageState();
@@ -488,6 +491,7 @@ class TattooDetailsPage extends StatelessWidget {
   }
 }
 
+// Browse Products
 class BrowseProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -631,7 +635,6 @@ class ExpertPage extends StatelessWidget {
       phoneNumber: '123-654-7890',
       email: 'Arun.Pendyala@gmail.com',
     ),
-    // Add more experts as needed
   ];
 
   @override
@@ -699,6 +702,7 @@ class ExpertPage extends StatelessWidget {
   }
 }
 
+// Cart
 class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -879,6 +883,7 @@ class CartPage extends StatelessWidget {
   }
 }
 
+// Order Informations
 class OrderInfoPage extends StatefulWidget {
   @override
   _OrderInfoPageState createState() => _OrderInfoPageState();
@@ -969,6 +974,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
   }
 }
 
+// Card Details/Processing
 class CardDetailsPage extends StatefulWidget {
   @override
   _CardDetailsPageState createState() => _CardDetailsPageState();
@@ -1026,7 +1032,6 @@ class _CardDetailsPageState extends State<CardDetailsPage> {
                   if (value == null || value.isEmpty) {
                     return 'Please enter expiration date';
                   }
-                  // Add your validation logic for expiration date
                   return null;
                 },
                 onSaved: (value) => _expirationDate = value,
